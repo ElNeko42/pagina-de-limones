@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Plátanos Acumulados</title>
+    <title>Limones Aacumulados</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <style>
         body {
@@ -16,12 +16,17 @@
     <h1>Plátanos Acumulados</h1>
     <script>
         let bananas = [];
+        let colors = ['red', 'blue', 'green'];
+        let currentColor = 0;
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
             generateBanana();
 
             setInterval(generateBanana, 24 * 60 * 60 * 1000);
+            setInterval(function() {
+        currentColor = (currentColor + 1) % colors.length;
+    }, 500);
         }
 
         function generateBanana() {
@@ -29,7 +34,7 @@
         }
 
         function draw() {
-            background(255);
+            background(colors[currentColor]);
             for (let i = 0; i < bananas.length; i++) {
                 let b = bananas[i];
                 let force = createVector(0, 0.2);
