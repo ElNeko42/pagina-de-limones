@@ -13,7 +13,7 @@
 </head>
 
 <body>
-   
+
     <script>
         let bananas = [];
         let colors = ['red', 'blue', 'green'];
@@ -25,14 +25,24 @@
             generateBanana();
 
             setInterval(generateBanana, 24 * 60 * 60 * 1000);
-            setInterval(function() {
-        currentColor = (currentColor + 1) % colors.length;
-    }, 500);
+            setInterval(function () {
+                currentColor = (currentColor + 1) % colors.length;
+            }, 500);
+
         }
 
         function generateBanana() {
             bananas.push(new Banana(width / 2, height / 2));
             count++;
+        }
+        function preload() {
+            miFuente = loadFont("Fruitz.otf");
+        }
+        function mousePressed() {
+            let b = new Banana(mouseX, mouseY);
+            bananas.push(b);
+            count++;
+            currentColor = floor(random(colors.length));
         }
 
         function draw() {
@@ -55,8 +65,10 @@
                 b.show();
             }
             fill(0);
+            textFont(miFuente);
             textSize(30);
-            text(`Cantidad de plátanos: ${count}`, 10, 50);
+            textAlign(CENTER, CENTER);
+            text(`limones: ${count}`, width / 2, height / 2);
         }
 
         class Banana {
@@ -64,7 +76,7 @@
                 this.pos = createVector(x, y);
                 this.vel = createVector();
                 this.acc = createVector();
-                this.r = 50;
+                this.r = 100;
                 this.angle = 0;
                 this.aVel = 0.05;
                 this.aAcc = 0.001;
@@ -97,14 +109,7 @@
                 push();
                 translate(this.pos.x, this.pos.y);
                 rotate(this.angle);
-                beginShape();
-                vertex(0, -this.r);
-                vertex(-this.r / 4, -this.r / 2);
-                vertex(-this.r / 4, this.r / 2);
-                vertex(0, this.r);
-                vertex(this.r / 4, this.r / 2);
-                vertex(this.r / 4, -this.r / 2);
-                endShape(CLOSE);
+                arc(0, 0, this.r, this.r, PI, 0, OPEN);
                 pop();
             }
         }
