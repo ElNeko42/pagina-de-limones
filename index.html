@@ -13,11 +13,12 @@
 </head>
 
 <body>
-    <h1>Plátanos Acumulados</h1>
+   
     <script>
         let bananas = [];
         let colors = ['red', 'blue', 'green'];
         let currentColor = 0;
+        let count = 0;
 
         function setup() {
             createCanvas(windowWidth, windowHeight);
@@ -31,6 +32,7 @@
 
         function generateBanana() {
             bananas.push(new Banana(width / 2, height / 2));
+            count++;
         }
 
         function draw() {
@@ -52,6 +54,9 @@
                 b.update();
                 b.show();
             }
+            fill(0);
+            textSize(30);
+            text(`Cantidad de plátanos: ${count}`, 10, 50);
         }
 
         class Banana {
