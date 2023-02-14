@@ -4,6 +4,7 @@
 <head>
     <title>Limones Aacumulados</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.0/dist/howler.min.js"></script>
     <style>
         body {
             padding: 0;
@@ -20,6 +21,12 @@
         let currentColor = 0;
         let count = 0;
 
+        var sound = new Howl({
+            src: ['Unlimónymediolimón.mp3'],
+            loop: true
+        });
+
+        sound.play();
         function setup() {
             createCanvas(windowWidth, windowHeight);
             generateBanana();
