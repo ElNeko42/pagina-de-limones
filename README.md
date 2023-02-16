@@ -24,9 +24,9 @@ Para utilizar este proyecto, simplemente abre el archivo index.html en tu navega
 
 
 ## Funcionalidades
-Generación de plátanos aleatorios en la pantalla al hacer clic
-Movimiento aleatorio de los plátanos
-Contador de la cantidad de plátanos en la pantalla
+- Generación de plátanos aleatorios en la pantalla al hacer clic
+- Movimiento aleatorio de los plátanos
+- Contador de la cantidad de plátanos en la pantalla
 
 
 ## Futuras mejoras
